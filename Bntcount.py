@@ -11,4 +11,11 @@ returns {"A": 3, "C": 1, "G": 1, "T": 2}
 """
 
 def ntcount(dna):
-  pass  # delete this line when you start writing your code
+  from Antcheck import isDNA
+  if not isDNA(dna):
+    return "error"
+  lst = [char for char in dna]
+  d1 = dict()
+  for i in lst:
+    d1[i] = d1.get(i, 0) + 1
+  return d1

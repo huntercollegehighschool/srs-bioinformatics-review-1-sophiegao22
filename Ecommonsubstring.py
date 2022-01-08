@@ -9,5 +9,34 @@ For example,
 commonsubstring("ACGCT", "CGCCA", "ATTACGCT") should return ["CGC"]
 """
 
+
+def listtostrings(s):
+  str1 = " "
+  return (str1.join(s))
+
+def isDNANEW(dna):
+  for i in dna:
+    if i not in ["A", "T", "C", "G", " "]:
+      return False
+  else: 
+    return True
+
 def commonsubstring(dnalist):
-  pass  # delete this line when you start writing your code
+  stringlist = listtostrings(dnalist)
+  from Ecommonsubstring import isDNANEW
+  if not isDNANEW(stringlist):
+    return "error"
+  x = len(dnalist)
+  first = dnalist[0]
+  firstlength = len(first)
+  answer = ""
+  for i in range (firstlength):
+    for j in range (i+1, firstlength + 1):
+      y = first[i:j]
+      var=1
+      for var in range (1,x):
+        if y not in dnalist[var]:
+          break
+      if var+1 == x and len(answer)<len(y):
+        answer = y
+  return answer

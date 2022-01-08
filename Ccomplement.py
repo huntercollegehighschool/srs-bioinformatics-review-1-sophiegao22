@@ -10,4 +10,21 @@ reversecomplement("AAGCT") should return "AGCTT".
 """
 
 def reversecomplement(dna):
-  pass  # delete this line when you start writing your code
+  from Antcheck import isDNA
+  if not isDNA(dna):
+    return "error"
+  reversedna = dna [::-1]
+  lst = [char for char in reversedna]
+  lst2 = []
+  for i in lst:
+    if i == "A":
+      lst2.append("T")
+    if i == "T":
+      lst2.append("A")
+    if i == "C":
+      lst2.append("G")
+    if i == "G":
+      lst2.append("C")
+  new = ""
+  return (new.join(lst2))
+  
